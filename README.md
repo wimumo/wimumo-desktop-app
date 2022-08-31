@@ -1,22 +1,19 @@
 # WIMUMO-DESKTOP
 
-Programa de escritorio para usar WIMUMO
+![version](https://img.shields.io/badge/version-1.0.0-blue)
+[![license](https://img.shields.io/github/license/gibic-leici/wimumo-desktop-app)](https://github.com/gibic-leici/wimumo-desktop-app/blob/main/LICENSE)
 
-Hasta la v02 Hecho en Electron Fiddle https://www.electronjs.org/fiddle
-
-Luego preparado para compilar con electron-forge
-
-Instalar Nodejs y electron-forge.
+Aplicación de escritorio para interacción con WIMUMO
 
 ## Características
 
-### Auto-configuración de wimumo OSC
+### Auto-configuración de WIMUMO OSC
 
-Muestra si se detectó un wimumo en la red.
+Muestra si se detectó un WIMUMO en la red.
 
 NO IMPLEMENTADO:
 
-Dialoga con wimumo para configurar los datos de osc (ip y puerto) de la computadora donde corre la aplicación (se puede hacer desde la página de configuración de WIMUMO, pero esto es más fácil para usuarios sin experiencia).
+Dialoga con WIMUMO para configurar los datos de osc (ip y puerto) de la computadora donde corre la aplicación (se puede hacer desde la página de configuración de WIMUMO, pero esto es más fácil para usuarios sin experiencia).
 
 Notifica si el OSC está activado.
 
@@ -30,7 +27,7 @@ Tiene un graficador rápido con ajuste automático de muestras por segundo para 
 
 Copiado de la app web anterior pero no implementado
 
-### Ayuda para el uso de wimumo
+### Ayuda para el uso de WIMUMO
 
 No implementado. 
 
@@ -42,13 +39,32 @@ No implementado
 
 No implementado
 
-## Repositorio
+## Instalación
 
-La rama principal es "master".
-Se crean ramas con versiones. Actualmente existe: 
- - v0.1 Primera versión funcional de "capacidades reducidas".
+### Versiones
 
-### TO-DO 
+- [ v1.0 ] Primera versión funcional con "capacidades reducidas".
+
+### Instalación manual
+
+**Pre-requisitos**
+
+- [Node.js](https://nodejs.org/en/) con `npm`.
+
+**Dependencias**
+
+- [Electron](https://www.electronjs.org/)
+- [Electron Forge](https://www.electronforge.io/)
+- [node-osc](https://www.npmjs.com/package/node-osc)
+- [websocket](https://www.npmjs.com/package/websocket)
+
+Instación de dependencias:
+
+```ps
+npm install
+```
+
+## TO-DO 
 
 - [ ] Modularizar graficador en canvas
 - [x] Mejorar el aspecto (mejoró...)
