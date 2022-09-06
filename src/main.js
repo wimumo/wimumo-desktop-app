@@ -69,6 +69,7 @@ app.whenReady().then(() => {
 
   oscServer.on('bundle', function (bundle) {
 
+    //console.log(bundle);
     bundle.elements.forEach((element, i) => {
       mainWindow.webContents.send('osc', element);
 
@@ -84,6 +85,7 @@ app.whenReady().then(() => {
           wsServer.connections[0].sendUTF(s)
           //wsServer.connections[0].sendUTF(" "+count)
           count++
+          console.log(s);
 
         }
       }
@@ -96,7 +98,7 @@ app.whenReady().then(() => {
           wsServer.connections[0].sendUTF(s)
           //wsServer.connections[0].sendUTF(" "+count)
           count++
-
+          //console.log(s);
         }
       }
     });
