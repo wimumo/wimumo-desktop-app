@@ -64,9 +64,10 @@ Instación de dependencias:
 npm install
 ```
 
-## TO-DO 
+## Compatibilidad
 
-- [ ] Modularizar graficador en canvas
-- [x] Mejorar el aspecto (mejoró...)
-- [x] Selección de canales osc para ver en el graficador
-- [ ] Calibración
+Versiones de la aplicación comprobadas que no presentan problemas de compatibilidad en su funcionamiento en conjunto con el [firmware](https://github.com/wimumo/wimumo-lite-firmware) del dispositivo:
+
+| Aplicación de escritorio | Firmware compatible |
+| :---: | :---: |
+| v1.0.0 | v1.0 |
