@@ -70,4 +70,5 @@ Versiones de la aplicación comprobadas que no presentan problemas de compatibil
 
 | Aplicación de escritorio | Firmware compatible |
 | :---: | :---: |
+| v1.0.1 | v1.0 |
 | v1.0.0 | v1.0 |
