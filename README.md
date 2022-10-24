@@ -43,7 +43,8 @@ No implementado
 
 ### Versiones
 
-- [ v1.0 ] Primera versión funcional con "capacidades reducidas".
+- [ v1.1.0 ] Agregado de opciones de ruteo para Costruct3 o Processing p5.js
+- [ v1.0.0 ] Primera versión funcional con "capacidades reducidas".
 
 ### Instalación manual
 
@@ -70,5 +71,6 @@ Versiones de la aplicación comprobadas que no presentan problemas de compatibil
 
 | Aplicación de escritorio | Firmware compatible |
 | :---: | :---: |
+| v1.1.0 | v1.0 |
 | v1.0.1 | v1.0 |
 | v1.0.0 | v1.0 |

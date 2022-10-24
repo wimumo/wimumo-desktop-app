@@ -248,7 +248,14 @@
           </datalist>
         </article>
         <article id="Rerouter">
-          <h3>Re-ruteo de paquetes OSC<h3>
+          <h3>Re-ruteo de paquetes OSC</h3>
+
+          <p>
+            <input onchange="updatedest(this)" type="radio" id="reoute-construct" name="selection-dest" value="dest-construct" checked>
+            <label for="reoute-construct">Construct 3</label><br>
+            <input onchange="updatedest(this)"  type="radio" id="reroute-processing-p5js" name="selection-dest" value="dest-processing-p5js">
+            <label for="reroute-processing-p5js">Processing (<mark>sólo modo p5.js</mark>)</label><br>
+          </p>
 
         </article>
       </section>
@@ -348,6 +355,11 @@
     });
 
     window.api.send("asynchronous-message", "pedido_iplocal");
+
+    function updatedest(arg){
+      console.log(arg.value);
+      window.api.send("asynchronous-message", arg.value);
+    }
 
     window.api.receive("iplocal", (data) => {
       console.log("datos: ");

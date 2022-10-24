@@ -23,6 +23,8 @@ var WebSocketRouter = require('websocket').router;
 var W3CWebSocket = require('websocket').w3cwebsocket;
 var http = require('http');
 
+var dest = "dest-construct";
+
 let mainWindow;
 var oscServer;
 
@@ -160,6 +162,15 @@ app.whenReady().then(() => {
       mainWindow.webContents.send('iplocal', results);
     }
 
+    else if (arg == "dest-construct") {
+      dest = arg;
+
+    }
+    else if(arg == "dest-processing-p5js"){
+      dest = arg;
+
+    }
+
   })
 
 
@@ -194,6 +205,8 @@ function originIsAllowed(origin) {
   return true;
 }
 
+
+
 wsServer.on('request', function (request) {
   if (!originIsAllowed(request.origin)) {
     // Make sure we only accept requests from an allowed origin
@@ -202,7 +215,13 @@ wsServer.on('request', function (request) {
     return;
   }
 
-  var connection = request.accept(null, request.origin);
+  
+  if(dest == "dest-construct"){
+  var connection = request.accept('echo-protocol', request.origin);
+  }
+  else{
+    var connection = request.accept(null, request.origin);
+  }
   console.log((new Date()) + ' Connection accepted.');
   connection.on('message', function (message) {
     if (message.type === 'utf8') {
