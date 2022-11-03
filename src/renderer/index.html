@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WIMUMO</title>
+  <meta name="description" content="WIMUMO">
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; script-src-elem 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylesheets/wimumo.css">
+</head>
+
+<body>
+
+<!-- Menu -->
+<nav class="menu" id="menu"><br>
+  <a onclick="menu_close()" class="menu-button menu-close-button"><</a>
+  <h3 class="menu-title">WIMUMO</h3>
+  <a href="#instrucciones" onclick="body_exchange('instrucciones')" class="menu-button">Instrucciones</a> 
+  <a href="#configuracion" onclick="body_exchange('configuracion')" class="menu-button">Configuración</a> 
+  <a href="#graficador" onclick="body_exchange('graficador')" class="menu-button">Señales</a>
+  <a href="#musica" onclick="body_exchange('musica')" class="menu-button">Música</a>
+  <a href="#rerouter" onclick="body_exchange('rerouter')" class="menu-button">Ruteo OSC</a>
+</nav>
+
+<!-- Barra de navegación [pantalla pequeña] -->
+<header class="menu-top-bar">
+  <span class="menu-top-title">WIMUMO</span>
+  <a class="menu-button menu-top-button" onclick="menu_open()">☰</a>
+</header>
+
+<!-- Efecto overlay [pantalla pequeña] -->
+<div class="menu-overlay" onclick="menu_close()" id="overlay"></div>
+
+<!-- Paneles -->
+<div class="main">
+
+  <div id="instrucciones" hiden>
+    <h3>Instrucciones</h3>
+
+    <p> 
+      Aquí se explica cómo configurar WIMUMO y su uso básico. 
+      Para más información puede consultar la página del proyecto en <a href="https://gibic.ing.unlp.edu.ar/wimumo" target="_blank">https://gibic.ing.unlp.edu.ar/wimumo</a>
+    </p>
+
+    <hr>
+
+    <h4>Instrucciones rápidas</h4>
+    
+    <ol>
+      <li>
+        Encienda WIMUMO. Tras unos segundos, verá que la luz indicadora parpadea rápidamente
+        con colores, esto indica que está en "modo configuración". Si WIMUMO no está en este modo,
+        puede cambiarlo presionando el pulsador.
+      </li>
+      <li>
+        Busque la red WiFi WIMUMOxxx, conéctese y navegue a la dirección <mark> 192.168.0.2 </mark>
+      </li>
+      <li>
+        Ingrese a "Configurar Red" para ingresar los datos de la red WiFi a donde conectará WIMUMO.
+      </li>
+      <li>
+        Ingrese a "Configurar OSC" para ingresar el destino de los paquetes OSC. Para usar esta
+        aplicación debe ingresar <mark> su IP local </mark> y el puerto <mark> 4560 </mark>.
+      </li>
+      <li>
+        Presione el pulsador para cambiar al modo de uso normal. Si WIMUMO logró conectarse a
+        la red verá el led titilar lentamente.
+      </li>
+    </ol>
+
+    <h4>Instrucciones paso a paso explicadas</h4>
+
+    <p>
+      WIMUMO tiene una tecla de encendido, un botón de configuración y una luz
+      indicadora.
+    </p>
+    <p>
+      La primera vez que use WIMUMO, deberá conectarlo a la red WiFi.
+      El procedimiento es muy similar a conectar su celular o computadora al WiFi,
+      pero como WIMUMO no tiene pantalla ni teclado, involucra algunos pasos
+      adicionales. La red WiFi debe ser la misma a donde está conectado el dispositivo
+      que recibirá los datos de WIMUMO (por ejemplo, donde ve esta aplicación).
+    </p>
+    <p>
+      Todos los dispositivos que se conectan a la red tienen una identificación
+      que se llama <em>dirección IP</em>. La computadora, el celular, y WIMUMO,
+      cada uno tiene su IP.
+      WIMUMO funciona enviando datos a un dispositivo de la red, y por lo tanto
+      necesita su IP para saber a dónde enviar los datos.
+    </p>
+    <ol>
+      <li>
+        Asegúrese de tomar nota de los datos de su red WiFi (nombre y contraseña).
+        No sólo deberá dárselas a WIMUMO, sino que al finalizar el procedimiento debe
+        volver a conectarse a su red. Encienda WIMUMO.
+        Tras unos segundos, verá que la luz indicadora parpadea rápidamente
+        con colores.
+      </li>
+      <li>
+        Conéctese a WIMUMO para configurarlo.
+        Puede hacerlo desde una notebook, celular, o Tablet,
+        aunque es más fácil hacerlo desde una notebook
+        (en ese caso puede saltear el próximo paso). 
+      </li>
+      <li>
+        Para configurar WIMUMO desde un celular:
+        <ol>
+          <li>Ponga a su celular en “modo avión”</li>
+          <li>Active el WiFi (sólo el WiFi, no desactive el modo avión)</li>
+        </ol>
+      <li>
+        Busque la red WiFi WIMUMOxxx y conéctese
+        (xxx es un código numérico particular de cada WIMUMO, por ejemplo WIMUMO023).
+        Puede tardar algunos segundos, observe que la conexión se completa y si
+        no es así, inténtelo de nuevo. 
+      </li>
+      <li>
+        Abra su navegador web (Google Chrome, o lo que use habitualmente
+        para acceder a internet o buscar en google) e ingrese en la barra
+        de direcciones: <mark> 192.168.0.2 </mark>
+      </li>
+      <li>
+        Debe aparecer una página dándole la bienvenida a la configuración de WIMUMO.
+        Si no aparece, espere unos segundos, inténtelo de nuevo, y eventualmente
+        chequee si se conectó correctamente al WiFi de WIMUMO.
+      </li>
+      <li>
+        Ingrese a “Configurar Red” donde verá los casilleros donde ingresar nobre
+        de red y contraseña. Hágalo y presione “Aplicar”.
+      </li>
+      <ol>
+        <li>
+          Avanzado: Si necesita configurar un IP fijo, puede hacerlo, si no,
+          puede dejar todo vacío.
+        </li>
+      </ol>
+      <li>
+        Ingrese a "Configurar OSC" e ingrese la IP de la computadora donde desea
+        enviar las señales OSC y el puerto, luego presione "Enviar Datos". Si desea
+        usar WIMUMO desde esta aplicación, la dirección IP deberá ser la de esta
+        computadora <span id="instrucciones_iplocal"> </span> y en "puerto" debe
+        ingresar <mark> 4560 </mark>. 
+      </li>
+      <li>
+        ¡Listo! El proceso de configuración terminó. Presione el pulsador de “modo” de WIMUMO. El sistema se
+        reiniciará y
+        si todo salió bien, verá la luz parpadear lentamente.
+        ¡Su WIMUMO ya está configurado! Si en cambio vuelve a parpadear rápidamente,
+        significa que algo salió mal y continúa en “modo configuración”. Pruebe
+        conectarse nuevamente y reingresar los datos de la red. 
+      </li>
+      <li>
+        Recuerde volver a conectar su computadora a la red.
+        Si realizó la configuración con un celular, recuerde desactivar
+        el modo avión para que su celular vuelva a funcionar normalmente.
+      </li>
+    </ol>
+    <p>
+      Si lleva su WIMUMO a un lugar nuevo con una red que no está cargada en WIMUMO,
+      al encenderse se prenderá en el modo de configuración automáticamente
+      y puede comenzar en el paso 1. Si su WIMUMO está conectado a una red,
+      pero necesita cambiar la configuración, presione el pulsador de “modo” y WIMUMO
+      se reiniciará en el modo de configuración.
+    </p>
+
+    <h4>Uso de WIMUMO</h4>
+
+    <p>
+      WIMUMO tiene electrodos que miden señales eléctricas del cuerpo. Si los coloca
+      sobre su cuerpo (con los contactos metálicos apoyados sobre la piel en una zona
+      libre de pelo) podrá visualizar la actividad eléctrica de los músculos que se
+      encuentren en ese lugar, cuando se contraigan. Si los apoya en su pecho incluso
+      puede visualizar los latidos del corazón.
+    </p>
+    <p>
+      WIMUMO envía los datos de las señales que mide usando el protocolo OSC. Este protocolo
+      es muy utilizado en programas de generación de multimedia. Con esta aplicación
+      podrá ver las señales y controlar tonos musicales, pero sacará mayor provecho a WIMUMO
+      creando lo que desee con aplicaciones tales como puredata y la muy conocida
+      <a href="https://processing.org/" target="_blank">Processing (https://processing.org/)</a>. En la <a href="https://gibic.ing.unlp.edu.ar/wimumo" target="_blank">página del proyecto</a> encontrará algunos
+      ejemplos de Processing para comenzar a usar WIMUMO.
+    </p>
+    <p>
+      WIMUMO funciona con baterías de litio recargables tipo 14500 de 3.7 V. Si bien tienen
+      el mismo tamaño, <mark> son distintas de las pilas AA comunes </mark>, y no funcionará si se
+      intentan utilizar. Cuando la batería está baja, la luz indicadora titilará en rojo y
+      debe retirarse la batería del quipo y recargarla.
+    </p>
+    <footer>
+      <a href="http://gibic.ar/" target="_blank">GIBIC</a>, 2022.
+      <br>Grupo de Instrumentación Biomédica, Industrial y Científica.
+      <br>Instituto LEICI (UNLP-CONICET-CIC).
+    </footer>
+  </div>
+
+  <div id="configuracion" hiden>
+    <h3>Estado de WIMUMO</h3>
+    <p id="estado"></p>
+  </div>
+  
+  <div id="graficador" hiden>
+    <h3>Señales</h3>
+    <div id="graphButtons">
+      <button onclick="addGraph()">Agregar</button>
+      <button onclick="removeGraph()">Eliminar</button>
+    </div>
+    <div id="graphRec" hiden>
+      <button id="rec" onclick="button_toggleRecord()">Grabar</button>
+      <button onclick="button_download()">Guardar registro</button>
+    </div>
+  </div>
+
+  <div id="musica" hiden>
+    <h3>Música</h3>
+    <p>
+      <button class="vumetro" id="ch1">1</button>
+      <input type="range" list="tickmarks" min="0" max="1000" value="250" class="slider" id="sch1">
+    </p>
+    <p>
+      <button class="vumetro" id="ch2">2</button>
+      <input type="range" list="tickmarks" min="0" max="1000" value="250" class="slider" id="sch2">
+    </p>
+
+
+    <p>
+      <button id="audioEN" onclick="habilitarAudio()">Audio OFF</button>
+    </p>
+
+    <datalist id="tickmarks">
+      <option value="0"></option>
+    </datalist>
+  </div>
+
+  <div id="rerouter" hiden>
+    <h3>Re-ruteo de paquetes OSC</h3>
+    <h4>Aplicación destino</h4>
+    <p>
+      <input onchange="updateDestApp(this)" type="radio" id="destConstruct" name="destApp" value="construct" checked>
+      <label for="destConstruct">Construct 3</label><br>
+      <input onchange="updateDestApp(this)"  type="radio" id="destProcessing-p5js" name="destApp" value="processing-p5js">
+      <label for="destProcessing-p5js">Processing (<mark>sólo modo p5.js</mark>)</label><br>
+    </p>
+    <div class="msg info">
+      <p>
+        Actualmente el re-ruteo de paquetes OSC se realiza en segundo plano a través de websockets, 
+        para acceder al contenido es necesario conectarse al servidor en el puerto 80.
+      </p>
+    </div>
+  </div> 
+</div>
+
+<script src="scripts/index.js"></script>
+<script src="scripts/instructions.js"></script>
+<script src="scripts/graph.js"></script>
+<script src="scripts/music.js"></script>
+<script src="scripts/reroute.js"></script>
+
+</body>
+</html>
