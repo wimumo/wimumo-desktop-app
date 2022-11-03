@@ -233,17 +233,9 @@
 
   <div id="rerouter" hiden>
     <h3>Re-ruteo de paquetes OSC</h3>
-    <h4>Aplicación destino</h4>
-    <p>
-      <input onchange="updateDestApp(this)" type="radio" id="destConstruct" name="destApp" value="construct" checked>
-      <label for="destConstruct">Construct 3</label><br>
-      <input onchange="updateDestApp(this)"  type="radio" id="destProcessing-p5js" name="destApp" value="processing-p5js">
-      <label for="destProcessing-p5js">Processing (<mark>sólo modo p5.js</mark>)</label><br>
-    </p>
     <div class="msg info">
       <p>
-        Actualmente el re-ruteo de paquetes OSC se realiza en segundo plano a través de websockets, 
-        para acceder al contenido es necesario conectarse al servidor en el puerto 80.
+        Si se encuentra utilizando el programa Processing en modo Java, cierre esta aplicación antes de continuar.
       </p>
     </div>
   </div> 
@@ -253,7 +245,7 @@
 <script src="scripts/instructions.js"></script>
 <script src="scripts/graph.js"></script>
 <script src="scripts/music.js"></script>
-<script src="scripts/reroute.js"></script>
+<script src="scripts/rerouter.js"></script>
 
 </body>
 </html>

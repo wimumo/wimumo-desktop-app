@@ -9,7 +9,7 @@ contextBridge.exposeInMainWorld(
     "api", {
         send: (channel, data) => {
             // whitelist channels
-            let validChannels = ['get-iplocal', 'set-wsdestapp'];
+            let validChannels = ['get-iplocal'];
             if (validChannels.includes(channel)) {
                 ipcRenderer.send(channel, data);
             }

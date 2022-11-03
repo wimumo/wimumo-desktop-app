@@ -63,11 +63,6 @@ app.whenReady().then(() => {
     mainWindow.webContents.send('iplocal', results);
   });
 
-  ipcMain.on('set-wsdestapp', (event, arg) => {
-    /* Cambio de aplicación destino de los mensajes por WS */
-    wsDestApp = arg;
-  });
-
   /*
   *   OSC 
   */
@@ -109,8 +104,6 @@ app.whenReady().then(() => {
   *   Websockets 
   */
 
-  var wsDestApp = 'construct';
-
   var server = http.createServer(function (request, response) {
     console.log((new Date()) + ' Received request for ' + request.url);
     response.writeHead(404);
@@ -137,9 +130,7 @@ app.whenReady().then(() => {
       return;
     }
 
-    let connection;
-    if ( wsDestApp == 'construct') connection = request.accept('echo-protocol', request.origin);
-    else connection = request.accept('null', request.origin);
+    let connection = request.accept(request.requestedProtocols[0], request.origin);
     
     console.log((new Date()) + ' Connection accepted.');
     connection.on('message', function (message) {
